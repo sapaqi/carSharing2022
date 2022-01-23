@@ -1,5 +1,343 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;700;900&display=swap');
+
+:root {
+    --iconScrollSize: 55px;
+    --lineSize: 30px;
+    --containerWidth: 1100px;
+
+    --colorPrimary: red;
+    --colorSecondary: pink;
+    --colorDark: black;
+    --colorLessDark: #28272c;
+    --colorLight: white;
+    --colorText: #6a6a6a;
+    --colorText2: #b2b2b2;
 }
+
+.container {
+    display: flex;
+    width: var(--containerWidth);
+    margin: 0 auto;
+}
+
+body {
+    position: relative;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+h1 {
+    color: var(--colorLight);
+    text-transform: uppercase;
+    font-size: 90px;
+    font-weight: 900;
+    text-shadow: 0 3px 6px var(--colorDark);
+    line-height: 90px;
+}
+
+.heading__h2 {
+    position: relative;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+.heading__h2--colorLight {
+    color: var(--colorLight);
+}
+.heading__h2::before,
+.heading__h2::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    height: 3px;
+    width: var(--lineSize);
+    background-color: var(--colorPrimary);
+}
+.heading__h2::before {
+    left: calc(-1 * var(--lineSize) - 10px);
+}
+.heading__h2::after {
+    right: calc(-1 * var(--lineSize) - 10px);
+}
+
+h3 {
+    text-transform: uppercase;
+    font-size: 19px;
+    font-weight: 400;
+}
+
+p {
+    color: var(--colorLight);
+    font-size: 16px;
+    font-weight: 700;
+    margin: 10px 0;
+    text-align: center;
+}
+.blog p {
+    color: var(--colorText);
+    font-size: 14px;
+    font-weight: 300;
+    margin: 10px 0 20px 0;
+    text-align: left;
+    padding-right: 100px;
+}
+.blog h3 {
+    color: var(--colorText);
+    text-align: left;
+}
+.services p {
+    color: var(--colorText2);
+    font-size: 14px;
+    font-weight: 300;
+    margin: 10px 0 20px 0;
+    text-align: center;
+}
+.services h3 {
+    color: var(--colorText2);
+    text-align: center;
+}
+
+.buttons {
+    display: flex;
+    padding: 10px 0;
+}
+.button {
+    display: inline-block;
+    margin: 0 10px;
+    padding: 15px 30px;
+    border-radius: 40px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+}
+.buttonSmall {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 40px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+}
+.button--primary {
+    background-color: var(--colorPrimary);
+    color: var(--colorLight);
+}
+.button--primary:hover {
+    background-color: var(--colorDark);
+}
+.button--secondary {
+    background-color: var(--colorLight);
+    color: var(--colorPrimary);
+}
+.button--secondary:hover {
+    background-color: var(--colorDark);
+    color: var(--colorLight);
+}
+
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 4;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.header .container {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: var(--colorLight);
+}
+.logo span {
+    color: var(--colorPrimary);
+}
+.logo img {
+    padding-right:5px;
+}
+
+.navMain ul {
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+}
+.navMain ul li {
+
+}
+.menuLink {
+    display: block;
+    padding: 33px 22px;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--colorLight);
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.menuLink:hover {
+    background-color: rgba(256, 256, 256, 0.1);
+}
+
+.hero {
+    position: relative;
+    width: 100vw;
+    height: calc(100vh - var(--iconScrollSize) / 2);
+    background: url("../images/hero.png") center/cover;
+    display: flex;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: var(--colorDark);
+    opacity: 0.5;
+}
+.hero .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: var(--containerWidth);
+    position: relative;
+    z-index: 3;
+}
+
+.iconScroll {
+    position: absolute;
+    left: calc(50% - var(--iconScrollSize) / 2);
+    bottom: calc(-1 * var(--iconScrollSize) / 2);
+    width: var(--iconScrollSize);
+    height: var(--iconScrollSize);
+    border-radius: 50%;
+    background: var(--colorPrimary) url("../images/iconArrowDown.svg") no-repeat center center;
+    z-index: 4;
+}
+.iconScroll:hover {
+    background-color: var(--colorDark);
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.box img {
+    margin-bottom: 15px;
+}
+.box__blog {
+    width: 352px;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.box__services {
+    width: 231px;
+    justify-content: center;
+}
+
+.blog {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--colorLight);
+    padding: 100px 0;
+}
+.blog .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.services {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--colorLessDark);
+    padding: 100px 0;
+}
+.services .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--colorLight);
+    padding: 100px 0;
+}
+.contact .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.boxForm {
+    width: 444px;
+    display: flex;
+    flex-direction: column;
+}
+
+.tinyText {
+    font-size: 10px;
+    font-weight: 300;
+    color: var(--colorText2);
+    text-align: left;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    margin-bottom: 5px;
+    padding: 5px;
+    border: 1px solid var(--colorText2);
+    border-radius: 10px;
+    outline: none;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+    border: 1px solid var(--colorPrimary);
+}
+
+.customCheckbox {
+    display: flex;
+}
+
+.customCheckbox input {
+    width: 0;
+    height: 0;
+    display: none;
+}
+
+.customCheckbox .customCheckboxicon {
+    width: 30px;
+    height: 30px;
+    background-color: blue;
+    display: block;
+    flex-shrink: 0;
+    margin: 3px;
+    border-radius: 10px;
+}
+
+.customCheckbox input:checked + .customCheckboxicon {
+    background-color: lightblue;
+}
+
